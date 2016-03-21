@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<!-- ======================= TODO TASK VIEWS ========================== -->
+
+		<!-- TODO Task List View -->
+		<record id="view_task_list" model="ir.ui.view">
+			<field name="name">Tasks List</field>
+			<field name="model">bt.todo.tasks</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="TODO Tasks" colors="blue:state=='open';orange:state=='hold';green:state=='done'">
+					<field name="name" />
+					<field name="user_id" />
+					<field name="priority" />
+					<field name="due_date" />
+					<field name="category_id" />
+					<field name="res_id" />
+					<field name="state" />
+					<field name="create_uid" />
+
+					<button string="Open" icon="gtk-cancel" name="action_reset" type="object" states="done,hold" />
+					<button string="Hold" icon="gtk-media-pause" name="action_hold" type="object" states="done,open" />
+					<button string="Done" icon="gtk-apply" name="action_done" type="object" states="open,hold" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- TODO Task Form View -->
+		<record id="view_task_form" model="ir.ui.view">
+			<field name="name">Task form</field>
+			<field name="model">bt.todo.tasks</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="TODO Task">
+					<group colspan="4" col="4">
+						<separator string="General" colspan="4" />
+						<field name="create_uid" />
+						<field name="name" />
+						<field name="user_id" />
+						<field name="priority" />
+						<field name="category_id" />
+						<field name="res_id" />
+						<field name="private" />
+					</group>
+
+					<group colspan="4" col="4">
+						<separator string="Timing" colspan="4" />
+						<field name="due_date" />
+						<field name="due_time" widget="float_time" />
+					</group>
+
+					<group colspan="4" col="4">
+						<separator string="Description" colspan="4" />
+						<field name="description" nolabel="1" colspan="4" />
+					</group>
+
+					<group name="buttons" colspan="4" col="5">
+						<field name="state" widget="statusbar" />
+						<button string="Reset to Open" icon="gtk-cancel" name="action_reset" type="object"
+							states="done,hold" />
+						<button string="Hold" icon="gtk-media-pause" name="action_hold" type="object" states="done,open" />
+						<button string="Done" icon="gtk-apply" name="action_done" type="object" states="open,hold" />
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<!-- TODO Task Search View -->
+		<record id="view_task_search" model="ir.ui.view">
+			<field name="name">Tasks search view</field>
+			<field name="model">bt.todo.tasks</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search>
+					<filter icon="gtk-cancel" name="open_tasks" string="Open" domain="[('state', '=', 'open')]"
+						help="Show open tasks" />
+					<filter icon="gtk-media-pause" name="hold_tasks" string="Hold" domain="[('state', '=', 'hold')]"
+						help="Show hold tasks" />
+					<filter icon="gtk-apply" name="done_tasks" string="Done" domain="[('state', '=', 'done')]"
+						help="Show done tasks" />
+
+					<field name="name" />
+					<field name="user_id">
+						<filter icon="terp-personal" domain="[('user_id', '=', uid)]" string="My Tasks" name="my_tasks" />
+					</field>
+					<field name="priority" />
+
+					<newline />
+					<group expand="0" string="Group By...">
+						<filter string="Category" icon="gtk-directory" domain="[]" context="{'group_by':'category_id'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- ======================= TODO CATEGORIES VIEWS ========================== -->
+
+		<!-- List View Categories -->
+		<record id="view_task_category_list" model="ir.ui.view">
+			<field name="name">Task Categories</field>
+			<field name="model">bt.todo.categories</field>
+			<field name="type">tree</field>
+			<field eval="6" name="priority" />
+			<field name="arch" type="xml">
+				<tree string="Partner Categories">
+					<field name="complete_name" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="view_task_category_tree" model="ir.ui.view">
+			<field name="name">bt.todo.categories.tree</field>
+			<field name="model">bt.todo.categories</field>
+			<field name="type">tree</field>
+			<field name="field_parent">child_ids</field>
+			<field name="arch" type="xml">
+				<tree toolbar="1" string="Task Categories">
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+
+		<!-- Form View Categories -->
+		<record id="view_task_category_form" model="ir.ui.view">
+			<field name="name">Task Categories</field>
+			<field name="model">bt.todo.categories</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Task Category">
+					<field name="name" select="1" />
+					<field name="active" />
+					<field name="parent_id" />
+					<separator colspan="4" string="Tasks" />
+					<field colspan="4" name="task_ids" nolabel="1" readonly="True">
+						<tree string="Tasks">
+							<field name="name" />
+							<field name="user_id" />
+							<field name="priority" />
+							<field name="due_date" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<!-- ======================= ACTIONS ========================== -->
+
+		<!-- menu Todo List / Tasks -->
+		<record id="action_tasks" model="ir.actions.act_window">
+			<field name="name">Todo Tasks</field>
+			<field name="res_model">bt.todo.tasks</field>
+			<field name="view_mode">tree,form</field>
+			<!-- specific view to open (if missing, highest priority view of given type is used) -->
+			<field name="view_id" ref="view_task_list" />
+			<!-- We defined a domain to show only the records "private=0" and "private=1 and user_id=uid" -->
+			<field name="domain">['|','&amp;',('private','=',1),('user_id','=',uid),('private','=',0)]</field>
+			<!-- Set default values for search filtering -->
+			<field name="context">{'search_default_open_tasks': True, 'search_default_hold_tasks': True, 'search_default_my_tasks': True}</field>
+			<!-- After declaring a search view, it will be used automatically for all tree views on the same model. 
+				If several search views exist for a single model, the one with the highest priority (lowest sequence) 
+				will be used. Another option is to explicitly select the search view you want to use, by setting the 
+				search_view_id field of the action. -->
+			<field name="search_view_id" ref="view_task_search" />
+		</record>
+
+		<!-- menu Todo List / Categories -->
+		<record id="action_categories" model="ir.actions.act_window">
+			<field name="name">Todo Categories</field>
+			<field name="res_model">bt.todo.categories</field>
+			<field name="view_mode">tree,form</field>
+			<!-- specific view to open (if missing, highest priority view of given type is used) -->
+			<field name="view_id" ref="view_task_category_list" />
+			<field name="help">Manage the Task categories in order to better classify them for tracking and
+				analysis purposes. A partner may belong to several categories and categories have a hierarchy
+				structure: a task belonging to a category also belong to his parent category.
+			</field>
+		</record>
+
+
+		<!-- ======================= MENUS ========================== -->
+
+		<!-- Root Menu item for TODO Tasks -->
+		<menuitem 
+				id="menu_todos_root" name="TODO Tasks" action="action_tasks" sequence="99"
+				parent="base.menu_tools" 
+				/>	
+
+		<!-- Child Menu item for Tasks -->
+<!-- 		<menuitem id="menu_tasks" name="TODO Tasks" parent="menu_todos_root" action="action_tasks" -->
+<!-- 		    groups="base.group_fsch_mitarbeiter,base.group_fsch_sekretariat,base.group_fsch_sk,base.group_fsch_stz_leiter" -->
+<!-- 			sequence="1" /> -->
+
+		<!-- Child Menu item for Tasks -->
+<!-- 		<menuitem id="menu_categories" name="TODO Categories" parent="menu_todos_root" action="action_categories" -->
+<!-- 		    groups="base.group_fsch_mitarbeiter,base.group_fsch_sekretariat,base.group_fsch_sk,base.group_fsch_stz_leiter" -->
+<!-- 			sequence="2" /> -->
+	</data>
+</openerp>

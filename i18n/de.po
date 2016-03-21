@@ -1,0 +1,382 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* bt_todo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20130211-004142\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-15 15:22+0000\n"
+"PO-Revision-Date: 2013-02-15 15:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:60
+#: view:bt.todo.tasks:0
+#: field:bt.todo.tasks,category_id:0
+#: field:bt.todo.tasks.wizard,category_id:0
+#, python-format
+msgid "Category"
+msgstr "Kategorie"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:159
+#: field:bt.todo.categories,parent_left:0
+#, python-format
+msgid "Left parent"
+msgstr "Left parent"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:161
+#: field:bt.todo.categories,task_ids:0
+#: view:bt.todo.tasks:0
+#: model:ir.ui.menu,name:bt_todo.menu_todos_root
+#, python-format
+msgid "TODO Tasks"
+msgstr "Aufgaben"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:54
+#: field:bt.todo.tasks,name:0
+#: field:bt.todo.tasks.wizard,name:0
+#, python-format
+msgid "Title"
+msgstr "Titel"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:157
+#: field:bt.todo.categories,child_ids:0
+#, python-format
+msgid "Child Categories"
+msgstr "Child Categories"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:56
+#: field:bt.todo.tasks,priority:0
+#: field:bt.todo.tasks.wizard,priority:0
+#, python-format
+msgid "Priority"
+msgstr "Priorität"
+
+#. module: bt_todo
+#: view:bt.todo.tasks:0
+msgid "Group By..."
+msgstr "Group By..."
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:70
+#: field:bt.todo.tasks,state:0
+#: field:bt.todo.tasks.wizard,state:0
+#, python-format
+msgid "State"
+msgstr "Status"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:154
+#: field:bt.todo.categories,name:0
+#, python-format
+msgid "Category Name"
+msgstr "Category Name"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:36
+#: selection:bt.todo.tasks,priority:0
+#: selection:bt.todo.tasks.wizard,priority:0
+#, python-format
+msgid "Low"
+msgstr "Tief"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:39
+#: selection:bt.todo.tasks,priority:0
+#: selection:bt.todo.tasks.wizard,priority:0
+#, python-format
+msgid "Very High"
+msgstr "Sehr hoch"
+
+#. module: bt_todo
+#: model:ir.actions.act_window,help:bt_todo.action_categories
+msgid "Manage the Task categories in order to better classify them for tracking and\n"
+"				analysis purposes. A partner may belong to several categories and categories have a hierarchy\n"
+"				structure: a task belonging to a category also belong to his parent category.\n"
+"			"
+msgstr "Manage the Task categories in order to better classify them for tracking and\n"
+"				analysis purposes. A partner may belong to several categories and categories have a hierarchy\n"
+"				structure: a task belonging to a category also belong to his parent category.\n"
+"			"
+
+#. module: bt_todo
+#: model:ir.model,name:bt_todo.model_bt_todo_tasks
+#: model:ir.model,name:bt_todo.model_bt_todo_tasks_wizard
+msgid "Todo tasks"
+msgstr "Todo tasks"
+
+#. module: bt_todo
+#: view:bt.todo.tasks:0
+msgid "Show open tasks"
+msgstr "Show open tasks"
+
+#. module: bt_todo
+#: help:bt.todo.categories,active:0
+msgid "Uncheck this field to hide the category without removing it"
+msgstr "Uncheck this field to hide the category without removing it"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:37
+#: selection:bt.todo.tasks,priority:0
+#: selection:bt.todo.tasks.wizard,priority:0
+#, python-format
+msgid "Medium"
+msgstr "Mittel"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:71
+#: view:bt.todo.tasks:0
+#: field:bt.todo.tasks,description:0
+#: view:bt.todo.tasks.wizard:0
+#: field:bt.todo.tasks.wizard,description:0
+#, python-format
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: bt_todo
+#: view:bt.todo.tasks:0
+msgid "My Tasks"
+msgstr "My Tasks"
+
+#. module: bt_todo
+#: constraint:bt.todo.categories:0
+msgid "You cannot create recursive categories"
+msgstr "You cannot create recursive categories"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:72
+#: field:bt.todo.tasks,create_uid:0
+#: field:bt.todo.tasks.wizard,create_uid:0
+#, python-format
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: bt_todo
+#: view:bt.todo.tasks:0
+#: view:bt.todo.tasks.wizard:0
+msgid "TODO Task"
+msgstr "TODO Task"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:158
+#: field:bt.todo.categories,active:0
+#, python-format
+msgid "Active"
+msgstr "Active"
+
+#. module: bt_todo
+#: model:ir.actions.report.xml,name:bt_todo.action_todo_tasks_report
+msgid "TODO List"
+msgstr "TODO List"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:68
+#: view:bt.todo.tasks:0
+#: selection:bt.todo.tasks,state:0
+#: selection:bt.todo.tasks.wizard,state:0
+#, python-format
+msgid "Hold"
+msgstr "In Bearbeitung"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:65
+#: help:bt.todo.tasks,notify:0
+#: help:bt.todo.tasks.wizard,notify:0
+#, python-format
+msgid "Check this field to send an email to the specified user when the due date is near"
+msgstr "Check this field to send an email to the specified user when the due date is near"
+
+#. module: bt_todo
+#: view:bt.todo.tasks:0
+msgid "Show done tasks"
+msgstr "Show done tasks"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:62
+#: help:bt.todo.tasks,private:0
+#: help:bt.todo.tasks.wizard,private:0
+#, python-format
+msgid "Check this field to show this TODO task only to the specified user"
+msgstr "Check this field to show this TODO task only to the specified user"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:57
+#: field:bt.todo.tasks,due_date:0
+#: field:bt.todo.tasks.wizard,due_date:0
+#, python-format
+msgid "Due Date"
+msgstr "Erstellt am"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:155
+#: field:bt.todo.categories,parent_id:0
+#, python-format
+msgid "Parent Category"
+msgstr "Parent Category"
+
+#. module: bt_todo
+#: model:ir.model,name:bt_todo.model_bt_todo_categories
+msgid "Manage Todo Categories"
+msgstr "Manage Todo Categories"
+
+#. module: bt_todo
+#: view:bt.todo.tasks.wizard:0
+msgid "Create Task"
+msgstr "Create Task"
+
+#. module: bt_todo
+#: view:bt.todo.tasks:0
+#: view:bt.todo.tasks.wizard:0
+msgid "Timing"
+msgstr "Termine"
+
+#. module: bt_todo
+#: view:bt.todo.categories:0
+msgid "Partner Categories"
+msgstr "Partner Categories"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:156
+#: field:bt.todo.categories,complete_name:0
+#, python-format
+msgid "Full Name"
+msgstr "Full Name"
+
+#. module: bt_todo
+#: view:bt.todo.tasks:0
+msgid "Show hold tasks"
+msgstr "Show hold tasks"
+
+#. module: bt_todo
+#: view:bt.todo.tasks:0
+msgid "Reset to Open"
+msgstr "Reset to Open"
+
+#. module: bt_todo
+#: view:bt.todo.categories:0
+msgid "Task Categories"
+msgstr "Task Categories"
+
+#. module: bt_todo
+#: view:bt.todo.categories:0
+msgid "Tasks"
+msgstr "Tasks"
+
+#. module: bt_todo
+#: model:ir.actions.act_window,name:bt_todo.action_tasks
+msgid "Todo Tasks"
+msgstr "Aufgaben"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:59
+#: field:bt.todo.tasks,res_id:0
+#: field:bt.todo.tasks.wizard,res_id:0
+#, python-format
+msgid "Reference"
+msgstr "Referenz"
+
+#. module: bt_todo
+#: view:bt.todo.categories:0
+msgid "Task Category"
+msgstr "Task Category"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:35
+#: selection:bt.todo.tasks,priority:0
+#: selection:bt.todo.tasks.wizard,priority:0
+#, python-format
+msgid "Very Low"
+msgstr "Sehr tief"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:61
+#: field:bt.todo.tasks,private:0
+#: field:bt.todo.tasks.wizard,private:0
+#, python-format
+msgid "Private"
+msgstr "Privat"
+
+#. module: bt_todo
+#: view:bt.todo.tasks:0
+#: view:bt.todo.tasks.wizard:0
+msgid "General"
+msgstr "Aufgaben"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:38
+#: selection:bt.todo.tasks,priority:0
+#: selection:bt.todo.tasks.wizard,priority:0
+#, python-format
+msgid "High"
+msgstr "Hoch"
+
+#. module: bt_todo
+#: model:ir.actions.act_window,name:bt_todo.action_categories
+msgid "Todo Categories"
+msgstr "Kategorien Aufgaben"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:69
+#: view:bt.todo.tasks:0
+#: selection:bt.todo.tasks,state:0
+#: selection:bt.todo.tasks.wizard,state:0
+#, python-format
+msgid "Done"
+msgstr "Erledigt"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:64
+#: field:bt.todo.tasks,notify:0
+#: field:bt.todo.tasks.wizard,notify:0
+#, python-format
+msgid "Notify"
+msgstr "Notify"
+
+#. module: bt_todo
+#: view:bt.todo.tasks.wizard:0
+msgid "Cancel"
+msgstr "Cancel"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:55
+#: field:bt.todo.tasks,user_id:0
+#: field:bt.todo.tasks.wizard,user_id:0
+#, python-format
+msgid "User"
+msgstr "Benutzer"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:67
+#: view:bt.todo.tasks:0
+#: selection:bt.todo.tasks,state:0
+#: selection:bt.todo.tasks.wizard,state:0
+#, python-format
+msgid "Open"
+msgstr "Offen"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:160
+#: field:bt.todo.categories,parent_right:0
+#, python-format
+msgid "Right parent"
+msgstr "Right parent"
+
+#. module: bt_todo
+#: code:addons/bt_todo/bt_todo.py:58
+#: field:bt.todo.tasks,due_time:0
+#: field:bt.todo.tasks.wizard,due_time:0
+#, python-format
+msgid "Time Required"
+msgstr "Time Required"
+

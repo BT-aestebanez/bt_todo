@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bt_todo_categories,bt_todo_categories,model_bt_todo_categories,,1,1,1,1
+access_bt_todo_tasks,bt_todo_tasks,model_bt_todo_tasks,,1,1,1,1
+access_bt_todo_tasks_accountant,bt_todo_tasks,model_bt_todo_tasks,account.group_account_invoice,0,0,0,0
+access_bt_todo_tasks_manager,bt_todo_tasks,model_bt_todo_tasks,account.group_account_manager,0,0,0,0
+access_bt_todo_categories_accountant,bt_todo_categories,model_bt_todo_categories,account.group_account_invoice,0,0,0,0
+access_bt_todo_categories_manager,bt_todo_categories,model_bt_todo_categories,account.group_account_manager,0,0,0,0

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<report id="action_todo_tasks_report" name="todo.tasks.report" string="TODO List" model="bt.todo.tasks"
+			file="bt_todo/report/todo_tasks_report.mako" report_type="webkit" auto="False" />
+
+		<!-- IMPORTANT: copy these three lines in your own module and modify the "ref" attribute in order to 
+			replace the default TODOs report header with a custom one -->
+		<record id="bt_todo.action_todo_tasks_report" model="ir.actions.report.xml">
+			<field name="webkit_header" ref="bt_todo.ir_header_webkit_todo" />
+		</record>
+
+		<!-- We can also add attachments of the pdf files on the right side -->
+		<!-- we can find this at settings/customization/low level objects/Actions/Reports -->
+		<!-- attachment="('Contract'+str(object.id or '')+'.pdf')" -->
+
+		<!-- There are two different ways to add the header reference -->
+		<!-- 1. Inside the report as this example -->
+		<!-- <report id="action_todo_tasks_report" name="todo.tasks.report" string="Tasks Report" model="bt.todo.tasks" 
+			file="bt_todo/report/todo_tasks_report.mako" report_type="webkit" webkit_header="report_webkit.ir_header_webkit_basesample0" 
+			auto="False" /> -->
+		<!-- 2. As a new record for the report id -->
+		<!-- <record id="setup_report_job_proposition" model="ir.actions.report.xml"> <field name="webkit_header" 
+			ref="ir_header_webkit_basesample0" /> </record> -->
+	</data>
+</openerp>

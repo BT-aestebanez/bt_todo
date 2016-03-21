@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- ======================= VIEWS ========================== -->
+
+		<!-- Form view with everything but the resource field and the state information -->
+		<record id="wizard_todo_task_form_view_1" model="ir.ui.view">
+			<field name="name">wizard_todo_task_form_view_1</field>
+			<field name="model">bt.todo.tasks.wizard</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="bt_todo.view_task_form" />
+			<field name="arch" type="xml">
+				<field name="state" position="replace" />
+				<group name="buttons" position="replace" />
+
+				<field name="res_id" position="replace" />
+
+				<field name="description" position="after">
+					<label colspan="2" />
+					<button string="Cancel" icon="gtk-cancel" special="cancel" />
+					<button string="Create Task" icon="gtk-ok" name="save_task" type="object" />
+				</field>
+			</field>
+		</record>
+
+		<!-- Form view with everything but the user, the resource field and the state information -->
+		<record id="wizard_todo_task_form_view_2" model="ir.ui.view">
+			<field name="name">wizard_todo_task_form_view_2</field>
+			<field name="model">bt.todo.tasks.wizard</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="" />
+			<field name="arch" type="xml">
+				<form string="TODO Task">
+					<group colspan="4" col="4">
+						<separator string="General" colspan="4" />
+						<field name="name" colspan="4"/>
+						<field name="priority" />
+						<field name="category_id" />
+						<field name="private" />
+					</group>
+
+					<group colspan="4" col="4">
+						<separator string="Timing" colspan="4" />
+						<field name="due_date" />
+						<field name="due_time" widget="float_time" />
+					</group>
+
+					<group colspan="4" col="4">
+						<separator string="Description" colspan="4" />
+						<field name="description" nolabel="1" colspan="4" />
+					</group>
+
+					<group name="buttons" colspan="4" col="4">
+						<button string="Cancel" icon="gtk-cancel" special="cancel" />
+						<button string="Create Task" icon="gtk-ok" name="save_task" type="object" />
+					</group>
+				</form>
+			</field>
+		</record>
+	</data>
+</openerp>
