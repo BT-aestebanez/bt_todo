@@ -34,6 +34,15 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="TODO Task">
+					<header>
+						<field name="state" widget="statusbar" />
+						<button string="Reset to Open" icon="gtk-cancel" name="action_reset"
+							type="object" states="done,hold" />
+						<button string="Hold" icon="gtk-media-pause" name="action_hold"
+							type="object" states="done,open" />
+						<button string="Done" icon="gtk-apply" name="action_done" type="object"
+							states="open,hold" />
+					</header>
 					<group colspan="4" col="4">
 						<separator string="General" colspan="4" />
 						<field name="create_uid" />
@@ -56,13 +65,6 @@
 						<field name="description" nolabel="1" colspan="4" />
 					</group>
 
-					<group name="buttons" colspan="4" col="5">
-						<field name="state" widget="statusbar" />
-						<button string="Reset to Open" icon="gtk-cancel" name="action_reset" type="object"
-							states="done,hold" />
-						<button string="Hold" icon="gtk-media-pause" name="action_hold" type="object" states="done,open" />
-						<button string="Done" icon="gtk-apply" name="action_done" type="object" states="open,hold" />
-					</group>
 				</form>
 			</field>
 		</record>
@@ -74,11 +76,11 @@
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search>
-					<filter icon="gtk-cancel" name="open_tasks" string="Open" domain="[('state', '=', 'open')]"
+					<filter name="open_tasks" string="Open" domain="[('state', '=', 'open')]"
 						help="Show open tasks" />
-					<filter icon="gtk-media-pause" name="hold_tasks" string="Hold" domain="[('state', '=', 'hold')]"
+					<filter name="hold_tasks" string="Hold" domain="[('state', '=', 'hold')]"
 						help="Show hold tasks" />
-					<filter icon="gtk-apply" name="done_tasks" string="Done" domain="[('state', '=', 'done')]"
+					<filter name="done_tasks" string="Done" domain="[('state', '=', 'done')]"
 						help="Show done tasks" />
 
 					<field name="name" />
@@ -129,9 +131,11 @@
 			<field name="type">form</field>
 			<field name="arch" type="xml">
 				<form string="Task Category">
-					<field name="name" select="1" />
-					<field name="active" />
-					<field name="parent_id" />
+					<group>
+						<field name="name" select="1" />
+						<field name="active" />
+						<field name="parent_id" />
+					</group>
 					<separator colspan="4" string="Tasks" />
 					<field colspan="4" name="task_ids" nolabel="1" readonly="True">
 						<tree string="Tasks">
@@ -180,21 +184,7 @@
 
 
 		<!-- ======================= MENUS ========================== -->
-
-		<!-- Root Menu item for TODO Tasks -->
-		<menuitem 
-				id="menu_todos_root" name="TODO Tasks" action="action_tasks" sequence="99"
-				parent="base.menu_tools" 
-				/>	
-
-		<!-- Child Menu item for Tasks -->
-<!-- 		<menuitem id="menu_tasks" name="TODO Tasks" parent="menu_todos_root" action="action_tasks" -->
-<!-- 		    groups="base.group_fsch_mitarbeiter,base.group_fsch_sekretariat,base.group_fsch_sk,base.group_fsch_stz_leiter" -->
-<!-- 			sequence="1" /> -->
-
-		<!-- Child Menu item for Tasks -->
-<!-- 		<menuitem id="menu_categories" name="TODO Categories" parent="menu_todos_root" action="action_categories" -->
-<!-- 		    groups="base.group_fsch_mitarbeiter,base.group_fsch_sekretariat,base.group_fsch_sk,base.group_fsch_stz_leiter" -->
-<!-- 			sequence="2" /> -->
+		<menuitem id="menu_todos_root" name="TODO Tasks" action="action_tasks"
+			sequence="99" />
 	</data>
 </openerp>

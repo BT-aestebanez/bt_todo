@@ -21,15 +21,14 @@
 ##############################################################################
 
 import time
-from report import report_sxw
-from osv import osv
+from openerp.addons.bt_report_webkit.models import report_sxw_ext
 from datetime import datetime, timedelta
-from tools import DEFAULT_SERVER_DATETIME_FORMAT, DEFAULT_SERVER_DATE_FORMAT
+from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT, DEFAULT_SERVER_DATE_FORMAT
 import pytz
-from tools.translate import _
+from openerp.tools.translate import _
 import calendar
 
-class todo_tasks_report(report_sxw.rml_parse):
+class todo_tasks_report(report_sxw_ext.rml_parse):
     
     TIMEZONE = 'Europe/Zurich'
     
@@ -52,7 +51,7 @@ class todo_tasks_report(report_sxw.rml_parse):
         now = datetime.now(pytz.timezone(self.TIMEZONE)).strftime(DEFAULT_SERVER_DATETIME_FORMAT)
         return now
     
-report_sxw.report_sxw('report.todo.tasks.report',
+report_sxw_ext.report_sxw_ext('report.todo.tasks.report',
                        'bt.todo.tasks', 
                        'bt_todo/report/todo_tasks_report.mako',
                        parser=todo_tasks_report)

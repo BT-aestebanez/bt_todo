@@ -27,7 +27,7 @@
     - Task management.""",
     "category": "Custom/TodoList",
     "website": "http://www.brain-tec.ch",
-    "depends": ["base", "report_webkit", "account"],
+    "depends": ["base", "bt_report_webkit", "account"],
     "data": [
         "data/internal_header_logo.xml",
         'view/bt_todo_view.xml',
