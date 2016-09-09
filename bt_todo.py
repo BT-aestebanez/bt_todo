@@ -143,8 +143,8 @@ class bt_todo_categories(osv.Model):
         'complete_name': fields.function(_name_get_fnc, type='char', string=_('Full Name')),
         'child_ids': fields.one2many('bt.todo.categories', 'parent_id', _('Child Categories')),
         'active' : fields.boolean(_('Active'), help='Uncheck this field to hide the category without removing it'),
-        'parent_left' : fields.integer(_('Left parent'), select=False),
-        'parent_right' : fields.integer(_('Right parent'), select=False),
+        'parent_left' : fields.integer(_('Left parent'), select=1),
+        'parent_right' : fields.integer(_('Right parent'), select=1),
         'task_ids': fields.one2many('bt.todo.tasks', 'category_id', string=_('TODO Tasks')),
     }
     

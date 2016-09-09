@@ -21,7 +21,7 @@
 ##############################################################################
 
 import time
-from openerp.addons.bt_report_webkit.models import report_sxw_ext
+from openerp.addons.bt_report_webkit import report_sxw_ext
 from datetime import datetime, timedelta
 from openerp.tools import DEFAULT_SERVER_DATETIME_FORMAT, DEFAULT_SERVER_DATE_FORMAT
 import pytz
